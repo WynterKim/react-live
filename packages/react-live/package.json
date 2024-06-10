@@ -22,7 +22,6 @@
   "dependencies": {
     "prism-react-renderer": "^2.0.6",
     "sucrase": "^3.31.0",
-    "use-editable": "^2.3.3"
   },
   "peerDependencies": {
     "react": ">=18.0.0",

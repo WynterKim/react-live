@@ -1,6 +1,6 @@
 import { Highlight, Prism, themes } from "prism-react-renderer";
 import { CSSProperties, useEffect, useRef, useState } from "react";
-import { useEditable } from "use-editable";
+import { useEditable } from "./useEditable";
 
 export type Props = {
   className?: string;
@@ -12,6 +12,7 @@ export type Props = {
   tabMode?: "focus" | "indentation";
   theme?: typeof themes.nightOwl;
   onChange?(value: string): void;
+  id?: string;
 };
 
 const CodeEditor = (props: Props) => {
@@ -27,7 +28,7 @@ const CodeEditor = (props: Props) => {
   useEditable(editorRef, (text) => setCode(text.slice(0, -1)), {
     disabled: props.disabled,
     indentation: tabMode === "indentation" ? 2 : undefined,
-  });
+  }, props.id);
 
   useEffect(() => {
     if (props.onChange) {
